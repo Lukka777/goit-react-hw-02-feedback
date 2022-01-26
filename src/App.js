@@ -1,6 +1,7 @@
 import "./App.css";
 import FeedbackOptions from "./components/FeedbackOptions";
 import React from "react";
+import options from "./components/Options";
 
 class App extends React.Component {
   state = {
@@ -10,22 +11,16 @@ class App extends React.Component {
   };
 
   render() {
-    const total = this.state.good + this.state.neutral + this.state.bad;
-    const percantage = (this.state.good / total) * 100;
     return (
       <>
         <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
-        {total === 0 ? (
-          "There is no feedback"
-        ) : (
-          <>
-            <p>good={this.state.good}</p>
-            <p>neutral={this.state.neutral}</p>
-            <p>bad={this.state.bad}</p>
-            <p>total={total}</p>
-            <p>Positive Feedback ={percantage}</p>
-          </>
-        )}
+        {total === 0 ? "There is no feedback" : <Optiopns 
+        good={options.good}
+        neutral={options.neutral}
+        bad={options.bad}
+        total={options.total}
+        percantage={options.percantage}
+        />}
       </>
     );
   }
