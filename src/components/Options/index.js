@@ -1,18 +1,23 @@
 import React from "react";
 
 class Options extends React.Component {
+  
+ 
+  
   render() {
-    const total = this.state.good + this.state.neutral + this.state.bad;
-    const percantage = (this.state.good / total) * 100;
+    const total = this.props.good + this.props.neutral + this.props.bad;
+    const percantage = (this.props.good /total) * 100;
     return (
+      total === 0 ? "There is no feedback" :
         <div>
-        <p>good={this.state.good}</p>
-        <p>neutral={this.state.neutral}</p>
-        <p>bad={this.state.bad}</p>
+        <p>good={this.props.good}</p>
+        <p>neutral={this.props.neutral}</p>
+        <p>bad={this.props.bad}</p>
         <p>total={total}</p>
         <p>Positive Feedback ={percantage}</p>
       </div>
     );
   }
+
 }
 export default Options;
